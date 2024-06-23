@@ -1,0 +1,65 @@
+model:
+  type: diffusion
+  network: gadiff
+  hidden_dim: 128
+  num_convs: 4
+  cutoff: 10.0
+  mlp_act: relu
+  beta_schedule: sigmoid
+  beta_start: 1.e-7
+  beta_end: 2.e-3
+  num_diffusion_timesteps: 5000
+  edge_order: 3
+  edge_encoder: mlp
+  smooth_conv: false
+
+  edge_type_func:                 # node attention
+    input_dim: 4
+    output_dim: 4
+    hidden_dim: 128
+    layer_num: 3
+    head_num: 16
+    drop_rate: 0.001
+
+  weight_func:                    # noise attention
+    input_dim: 4
+    output_dim: 4
+    hidden_dim: 384
+    layer_num: 3
+    head_num: 32
+    drop_rate: 0.001
+
+train:
+  seed: 2023
+  batch_size: 200
+  batch_num: 1000
+  val_freq: 1
+  max_iters: 500
+  model_max_grad_norm: 10000.0
+  modelw_max_grad_norm: 10000.0
+  anneal_power: 2.0
+  accum_iter: 1
+  
+  model_para:
+    optimizer:
+      type: adam
+      lr: 1.e-3
+      weight_decay: 0.
+      beta1: 0.95
+      beta2: 0.999
+    # scheduler:
+    #   type: plateau
+    #   factor: 0.6
+    #   patience: 10
+
+    scheduler:
+      type: defined
+      init_lr: 1.e-3
+      max_iters: 500000
+      min_lr: 0.
+      warmups: 30000
+
+dataset:
+  train: /home/a45/wangdh/code/data/QM9/split_data/train_data_40k.pt
+  val: /home/a45/wangdh/code/data/QM9/split_data/val_data_5k.pt
+  test: /home/a45/wangdh/code/data/QM9/split_data/ConfGF_Test/test_data_200.pt

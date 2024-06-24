@@ -19,11 +19,11 @@ conda activate gadiff
 This is the [[offical raw GEOM dataset]](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/JNGTDF).
 
 ### Preprocessed dataset
-We use the preprocessed datasets (GEOM-QM9 and GEOM-Drugs) as that of GeoDiff, which can be obtained through [[google drive folder]](https://drive.google.com/drive/folders/1b0kNBtck9VNrLRZxg6mckyVUpJA5rBHh?usp=sharing). The detailed usage are represented at [[GeoDiff codebase]](https://github.com/MinkaiXu/GeoDiff).
+We use the preprocessed datasets (GEOM-QM9 and GEOM-Drugs) of GeoDiff, which can be obtained through [[google drive folder]](https://drive.google.com/drive/folders/1b0kNBtck9VNrLRZxg6mckyVUpJA5rBHh?usp=sharing). The detailed usage are illustrated in [[GeoDiff codebase]](https://github.com/MinkaiXu/GeoDiff).
 
 ## Training
 
-The hyper-parameters are listed in config files (`./configs/*.yml`). The commands for training the model is at following:
+The hyper-parameters are in config files (`./configs/*.yml`). The following commands are used for training the model:
 
 ```bash
 # Default settings
@@ -35,7 +35,7 @@ The model checkpoints, configuration yaml files, training logs will all be saved
 
 ## Generation
 
-The checkpoints of two trained models of GEOM Datasets, i.e., `QM9` and `Drugs` is in the [[google drive folder]](https://drive.google.com/drive/folders/1sCS89cpbtCBDaFLiggKrCmyFFIFW2Beo?usp=drive_link). Then, please put the checkpoints `*.pt` into paths like `${log}/${model}/checkpoints/`, and also put corresponding configuration file `*.yml` into the upper level directory `${log}/${model}/`.
+The checkpoints of two trained models of GEOM Datasets, i.e., `QM9` and `Drugs` is in the [[google drive folder]](https://drive.google.com/drive/folders/1sCS89cpbtCBDaFLiggKrCmyFFIFW2Beo?usp=drive_link). Then, please put the checkpoints `*.pt` into paths like `${log}/${model}/checkpoints/`, and also put related configuration file `*.yml` into the upper level directory `${log}/${model}/`.
 
 You can generate conformations for test sets by:
 
@@ -43,15 +43,15 @@ You can generate conformations for test sets by:
 python test.py ${log}/${model}/checkpoints/${iter}.pt \
     --start_idx 800 --end_idx 1000
 ```
-Here `start_idx` and `end_idx` indicate the range of the test set that you want to generate. All hyper-parameters related to sampling can be set in `test.py` files.
+Here `start_idx` and `end_idx` indicate the range of the test set to be generated. All sampling hyper-parameters can be set in `test.py` files.
 
 ## Evaluation
 
-After generating conformations, the two tasks are evaluated on the generated data.
+After generating conformations, the two tasks are utilized to evaluation the conformation quality.
 
 ### Task 1. Conformation Generation
 
-The `COV` and `MAT` scores on the generated conformations of GEOM datasets can be computed using the following commands:
+The `COV` and `MAT` scores on the generated conformations can be computed using the following commands:
 
 ```bash
 python eval_covmat.py ${log}/${model}/${sample}/sample_all.pkl
@@ -59,7 +59,7 @@ python eval_covmat.py ${log}/${model}/${sample}/sample_all.pkl
 
 ### Task 2. Property Prediction
 
-For the property prediction, the small split of qm9 as that of GeoDiff in the [[google drive folder]](https://drive.google.com/drive/folders/1b0kNBtck9VNrLRZxg6mckyVUpJA5rBHh?usp=sharing) is used for generating conformations with following commands:
+For the property prediction, the small qm9 split in the [[google drive folder]](https://drive.google.com/drive/folders/1b0kNBtck9VNrLRZxg6mckyVUpJA5rBHh?usp=sharing) is used for generating conformations with following commands:
 
 ```bash
 python ${log}/${model}/checkpoints/${iter}.pt --num_confs 50 \
@@ -74,7 +74,7 @@ python eval_prop.py --generated ${log}/${model}/${sample}/sample_all.pkl
 
 ## Acknowledgement
 
-This repo is built upon the diffusion framework of excellent work [[GeoDiff]](https://github.com/MinkaiXu/GeoDiff).
+This repo is built upon the diffusion framework of excellent work, [[GeoDiff]](https://github.com/MinkaiXu/GeoDiff).
 
 ## Contact
 

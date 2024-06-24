@@ -2,11 +2,9 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/MinkaiXu/GeoDiff/blob/main/LICENSE)
 
-![cover](pic/GADIFF_framework.png)
-
 ## Environments
 
-### Install via Conda (Recommended)
+### Install via Conda
 
 ```bash
 # Clone the environment
@@ -25,7 +23,7 @@ We use the preprocessed datasets (GEOM-QM9 and GEOM-Drugs) as that of GeoDiff, w
 
 ## Training
 
-The hyper-parameters are represented in config files (`./configs/*.yml`). The commands for training the model is at following:
+The hyper-parameters are listed in config files (`./configs/*.yml`). The commands for training the model is at following:
 
 ```bash
 # Default settings
@@ -37,7 +35,7 @@ The model checkpoints, configuration yaml files, training logs will all be saved
 
 ## Generation
 
-The checkpoints of two trained models of GEOM-QM9 and GEOM-Drugs, i.e., `qm9_para` and `drugs_para` is in the [[google drive folder]](https://drive.google.com/drive/folders/1sCS89cpbtCBDaFLiggKrCmyFFIFW2Beo?usp=drive_link). Then, please put the checkpoints `*.pt` into paths like `${log}/${model}/checkpoints/`, and also put corresponding configuration file `*.yml` into the upper level directory `${log}/${model}/`.
+The checkpoints of two trained models of GEOM Datasets, i.e., `QM9` and `Drugs` is in the [[google drive folder]](https://drive.google.com/drive/folders/1sCS89cpbtCBDaFLiggKrCmyFFIFW2Beo?usp=drive_link). Then, please put the checkpoints `*.pt` into paths like `${log}/${model}/checkpoints/`, and also put corresponding configuration file `*.yml` into the upper level directory `${log}/${model}/`.
 
 You can generate conformations for test sets by:
 
@@ -68,7 +66,7 @@ python ${log}/${model}/checkpoints/${iter}.pt --num_confs 50 \
       --start_idx 0 --test_set data/GEOM/QM9/qm9_property.pkl
 ```
 
-Generating conformations are evaluate `mean  absolute errors (MAE)` metric on this split using the following commands:
+Generating conformations are evaluate `mean absolute errors (MAE)` metric on this split using the following commands:
 
 ```bash
 python eval_prop.py --generated ${log}/${model}/${sample}/sample_all.pkl
@@ -76,7 +74,7 @@ python eval_prop.py --generated ${log}/${model}/${sample}/sample_all.pkl
 
 ## Acknowledgement
 
-This repo is built upon the Diffusion framework of excellent work GeoDiff's [[codebase]](https://github.com/MinkaiXu/GeoDiff).
+This repo is built upon the diffusion framework of excellent work [[GeoDiff]](https://github.com/MinkaiXu/GeoDiff).
 
 ## Contact
 

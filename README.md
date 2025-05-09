@@ -19,7 +19,7 @@ conda activate gadiff
 This is the [[offical raw GEOM dataset]](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/JNGTDF).
 
 ### Preprocessed dataset
-We use the preprocessed datasets (GEOM-QM9 and GEOM-Drugs) of GeoDiff, which can be obtained through [[google drive folder]](https://drive.google.com/drive/folders/1b0kNBtck9VNrLRZxg6mckyVUpJA5rBHh?usp=sharing). The detailed usage are illustrated in [[GeoDiff codebase]](https://github.com/MinkaiXu/GeoDiff).
+We use the preprocessed datasets (GEOM-QM9 and GEOM-Drugs) of GeoDiff, which can be obtained through [[google drive folder]](https://drive.google.com/drive/folders/1fdt2kgIXgz9bXiKJ79ch2G1zTVVPq_Jf). The detailed usage are illustrated in [[GeoDiff codebase]](https://github.com/MinkaiXu/GeoDiff).
 
 ## Training
 

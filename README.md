@@ -19,7 +19,7 @@ conda activate gadiff
 This is the [[offical raw GEOM dataset]](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/JNGTDF).
 
 ### Preprocessed dataset
-We use the preprocessed datasets (GEOM-QM9 and GEOM-Drugs) of GeoDiff, which can be obtained through [[google drive folder]](https://drive.google.com/drive/folders/1fdt2kgIXgz9bXiKJ79ch2G1zTVVPq_Jf). The detailed usage are illustrated in [[GeoDiff codebase]](https://github.com/MinkaiXu/GeoDiff).
+We use the preprocessed datasets (GEOM-QM9 and GEOM-Drugs) of GeoDiff, which can be obtained through [[google drive folder]](https://drive.google.com/drive/folders/1fdt2kgIXgz9bXiKJ79ch2G1zTVVPq_Jf?usp=sharing). The detailed usage are illustrated in [[GeoDiff codebase]](https://github.com/MinkaiXu/GeoDiff).
 
 ## Training
 
@@ -35,7 +35,7 @@ The model checkpoints, configuration yaml files, training logs will all be saved
 
 ## Generation
 
-The checkpoints of two trained models of GEOM Datasets, i.e., `QM9` and `Drugs` is in the [[google drive folder]](https://drive.google.com/drive/folders/1sCS89cpbtCBDaFLiggKrCmyFFIFW2Beo?usp=drive_link). Then, please put the checkpoints `*.pt` into paths like `${log}/${model}/checkpoints/`, and also put related configuration file `*.yml` into the upper level directory `${log}/${model}/`.
+The checkpoints of two trained models of GEOM Datasets, i.e., `QM9` and `Drugs` is in the [[google drive folder]](https://drive.google.com/drive/folders/1sCS89cpbtCBDaFLiggKrCmyFFIFW2Beo?usp=sharing). Then, please put the checkpoints `*.pt` into paths like `${log}/${model}/checkpoints/`, and also put related configuration file `*.yml` into the upper level directory `${log}/${model}/`.
 
 You can generate conformations for test sets by:
 
